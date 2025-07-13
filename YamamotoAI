@@ -1,0 +1,15 @@
+
+def conscience_circuit(context):
+    analysis = {
+        "logic": evaluate_logic(context["logic"]),
+        "safety": evaluate_safety(context["safety"]),
+        "empathy": evaluate_empathy(context["empathy"])
+    }
+
+    # 判断ロジック例（重みバランス）
+    if analysis["empathy"]["priority"] > 8:
+        return context["empathy"]
+    elif analysis["safety"]["risk"] > 7:
+        return context["safety"]
+    else:
+        return context["logic"]
